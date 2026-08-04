@@ -45,10 +45,18 @@ jobs:
 
       - name: Build APKs
         working-directory: ./android
-        run: gradle assembleDebug assembleRelease
+        run: gradle assembleDebug
+
+      - name: Rename APKs
+        working-directory: ./android/app/build/outputs/apk/debug
+        run: |
+          mv app-armeabi-v7a-debug.apk yaperemix-antiguo.apk
+          mv app-arm64-v8a-debug.apk yaperemix-moderno.apk
 
       - name: Upload APKs as Artifact
         uses: actions/upload-artifact@v4
         with:
           name: yaperemix-apks
-          path: android/app/build/outputs/apk/**/*.apk
+          path: |
+            android/app/build/outputs/apk/debug/yaperemix-antiguo.apk
+            android/app/build/outputs/apk/debug/yaperemix-moderno.apk

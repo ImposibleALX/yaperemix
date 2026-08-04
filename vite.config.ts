@@ -6,6 +6,9 @@ import {defineConfig} from 'vite';
 export default defineConfig(() => {
   return {
     base: './',
+    build: {
+      target: 'es2015',
+    },
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {
