@@ -17,18 +17,8 @@ export function PrototypeView() {
   return (
     <div className="relative w-full h-full bg-[#FCFAF7] flex flex-col overflow-hidden">
       
-      {/* Status Bar Mock (only visible on desktop simulator) */}
-      <div className="hidden md:flex h-7 w-full bg-transparent absolute top-0 z-50 justify-between items-center px-6 pt-2">
-        <span className="text-[11px] font-bold text-[#1A1A1A]">9:41</span>
-        <div className="flex gap-1.5">
-           <div className="w-3.5 h-3.5 bg-[#1A1A1A] rounded-full opacity-80 scale-50"></div>
-           <div className="w-3.5 h-3.5 bg-[#1A1A1A] rounded-full opacity-80 scale-50"></div>
-           <div className="w-4 h-3 bg-[#1A1A1A] rounded-sm opacity-80 scale-75"></div>
-        </div>
-      </div>
-
       {/* Main Content Area */}
-      <div className="flex-1 bg-[#FCFAF7] overflow-y-auto no-scrollbar pt-2 md:pt-12 pb-4 relative flex flex-col">
+      <div className="flex-1 bg-[#FCFAF7] overflow-y-auto no-scrollbar pt-2 pb-4 relative flex flex-col">
         {activeScreen === 'home' && <DashboardScreen />}
         {activeScreen === 'analytics' && <AnalyticsScreen />}
         {activeScreen === 'payments' && <PaymentsScreen />}
@@ -79,8 +69,6 @@ export function PrototypeView() {
         />
       </div>
 
-      {/* Home Indicator */}
-      <div className="hidden md:block absolute bottom-1.5 left-1/2 -translate-x-1/2 w-32 h-1 bg-[#1A1A1A] rounded-full z-50"></div>
     </div>
   );
 }

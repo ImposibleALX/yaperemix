@@ -140,16 +140,11 @@ export default function App() {
 
   return (
     <AppProvider>
-      <div className="min-h-screen bg-white md:bg-slate-100 flex flex-col items-center justify-center p-0 md:p-8 relative">
+      <div className="min-h-[100dvh] w-full bg-white relative flex flex-col">
         <ModeSwitcher />
 
-        <div className="w-full h-[100dvh] md:max-w-[420px] md:h-[850px] md:rounded-[3rem] overflow-hidden bg-white md:shadow-2xl relative md:border-[12px] md:border-[#1A1A1A] flex flex-col">
-          {/* Simulated hardware elements */}
-          <div className="hidden md:block absolute top-0 left-1/2 -translate-x-1/2 w-40 h-7 bg-[#1A1A1A] rounded-b-3xl z-50"></div>
-          
-          {!isUnlocked && <PinScreen onUnlock={() => setIsUnlocked(true)} />}
-          {isUnlocked && <PrototypeView />}
-        </div>
+        {!isUnlocked && <PinScreen onUnlock={() => setIsUnlocked(true)} />}
+        {isUnlocked && <PrototypeView />}
       </div>
     </AppProvider>
   );
