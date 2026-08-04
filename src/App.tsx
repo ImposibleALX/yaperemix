@@ -21,23 +21,17 @@ function ModeSwitcher() {
   };
 
   const handleSecretClick = () => {
-    setClickCount(prev => {
-      const newCount = prev + 1;
-      if (newCount >= 5) {
-        setIsOpen(true);
-        return 0;
-      }
-      return newCount;
-    });
+    setIsOpen(true);
   };
 
   return (
     <>
-      <div 
-        className="fixed top-0 right-0 w-16 h-16 z-[9999] opacity-0" 
-        onClick={handleSecretClick}
-        title="Área secreta"
-      />
+      <button 
+        className="fixed top-4 right-4 z-[9999] bg-[#1A1A1A] text-white px-3 py-1.5 rounded-none text-[10px] uppercase tracking-widest font-bold shadow-lg border border-white/20 active:scale-95 touch-manipulation transition-all" 
+        onClick={() => setIsOpen(true)}
+      >
+        Versión Llenado
+      </button>
       {isOpen && (
         <div className="fixed top-16 right-4 z-[10000] bg-white rounded-lg shadow-xl p-2 flex flex-col gap-2 border border-gray-200">
           <div className="text-xs font-bold text-gray-400 mb-1 text-center">Menú de Pruebas</div>

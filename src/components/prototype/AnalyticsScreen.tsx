@@ -56,11 +56,11 @@ export default function AnalyticsScreen() {
         <div className="flex justify-between items-end mb-6">
           <div>
             <p className="text-[10px] uppercase font-bold opacity-50">Total Gastado</p>
-            <p className="text-2xl font-serif italic text-[#1A1A1A]">S/ {totalSpent.toLocaleString()}</p>
+            <p className="text-2xl font-serif italic text-[#1A1A1A]">S/ {totalSpent.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
           </div>
           <div className="text-right">
             <p className="text-[10px] uppercase font-bold opacity-50">Presupuesto</p>
-            <p className="text-sm font-serif italic text-[#1A1A1A]">S/ {totalBudget.toLocaleString()}</p>
+            <p className="text-sm font-serif italic text-[#1A1A1A]">S/ {totalBudget.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
           </div>
         </div>
 
@@ -134,7 +134,7 @@ export default function AnalyticsScreen() {
               </div>
               <div className="flex items-center gap-4">
                 <div className="text-right">
-                  <span className="text-sm font-serif italic text-[#1A1A1A]">S/ {item.spent}</span>
+                  <span className="text-sm font-serif italic text-[#1A1A1A]">S/ {item.spent.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                   <span className="text-[10px] opacity-40 font-bold ml-1">gastado</span>
                 </div>
                 {item.budget > 0 && (

@@ -15,7 +15,7 @@ export function PrototypeView() {
   const [isEntryModalOpen, setIsEntryModalOpen] = useState(false);
 
   return (
-    <div className="relative w-full h-full bg-[#FCFAF7] flex flex-col overflow-hidden">
+    <div className="relative w-full flex-1 bg-[#FCFAF7] flex flex-col overflow-hidden">
       
       {/* Main Content Area */}
       <div className="flex-1 bg-[#FCFAF7] overflow-y-auto no-scrollbar pt-2 pb-4 relative flex flex-col">

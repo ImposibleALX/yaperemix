@@ -67,9 +67,9 @@ export default function DashboardScreen() {
                 </div>
                 <span className="text-[9px] uppercase tracking-widest font-bold">{pocket.name}</span>
               </div>
-              <p className="text-lg font-serif italic text-[#1A1A1A]">S/ {pocket.spent.toLocaleString()}</p>
+              <p className="text-lg font-serif italic text-[#1A1A1A]">S/ {pocket.spent.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
               <p className="text-[9px] uppercase font-bold opacity-40 mt-1">
-                {left >= 0 ? `Sobra S/ ${left}` : `Te pasaste por S/ ${Math.abs(left)}`}
+                {left >= 0 ? `Sobra S/ ${left.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}` : `Te pasaste por S/ ${Math.abs(left).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}
               </p>
             </div>
           );
