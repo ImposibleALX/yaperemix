@@ -45,12 +45,15 @@ jobs:
         run: chmod +x ./gradlew
       - name: Restore Gradle Wrapper
         working-directory: ./android
-        run: gradle wrapper
-      - name: Build APK (Debug)
+        run: gradle wrapper --gradle-version 8.2.1
+      - name: Build APKs
         working-directory: ./android
-        run: ./gradlew assembleDebug
-      - name: Copy APK to web output
-        run: cp android/app/build/outputs/apk/debug/app-debug.apk ./dist/app.apk
+        run: ./gradlew assembleDebug assembleRelease
+      - name: Copy APKs to web output
+        run: |
+          mkdir -p ./dist/apks
+          cp android/app/build/outputs/apk/debug/app-debug.apk ./dist/apks/app-debug.apk
+          cp android/app/build/outputs/apk/release/app-release-unsigned.apk ./dist/apks/app-release.apk
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact
