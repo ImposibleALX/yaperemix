@@ -18,7 +18,7 @@ export function PrototypeView() {
     <div className="relative w-full flex-1 bg-[#FCFAF7] flex flex-col overflow-hidden">
       
       {/* Main Content Area */}
-      <div className="flex-1 bg-[#FCFAF7] overflow-y-auto no-scrollbar pt-2 pb-4 relative flex flex-col">
+      <div className="flex-1 bg-[#FCFAF7] overflow-y-auto no-scrollbar pt-[max(0.5rem,env(safe-area-inset-top))] pb-4 relative flex flex-col">
         {activeScreen === 'home' && <DashboardScreen />}
         {activeScreen === 'analytics' && <AnalyticsScreen />}
         {activeScreen === 'payments' && <PaymentsScreen />}
@@ -31,7 +31,7 @@ export function PrototypeView() {
       />
 
       {/* Bottom Navigation Bar */}
-      <div className="w-full bg-[#FCFAF7] border-t border-[#E5E5E5] flex justify-between items-center px-6 pb-6 md:pb-6 pt-3 z-40 relative shrink-0 shadow-[0_-4px_20px_rgba(0,0,0,0.02)]">
+      <div className="w-full bg-[#FCFAF7] border-t border-[#E5E5E5] flex justify-between items-center px-6 pb-[max(1.5rem,env(safe-area-inset-bottom))] pt-3 z-40 relative shrink-0 shadow-[0_-4px_20px_rgba(0,0,0,0.02)]">
         <NavItem 
           icon={<Home />} 
           label="Inicio" 
