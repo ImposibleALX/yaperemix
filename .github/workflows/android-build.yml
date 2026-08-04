@@ -41,6 +41,10 @@ jobs:
         working-directory: ./android
         run: chmod +x ./gradlew
 
+      - name: Restore Gradle Wrapper
+        working-directory: ./android
+        run: gradle wrapper
+
       - name: Build APK (Debug)
         working-directory: ./android
         run: ./gradlew assembleDebug
