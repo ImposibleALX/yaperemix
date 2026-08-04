@@ -6,31 +6,62 @@
 import React, { useState } from 'react';
 import { PrototypeView } from './components/PrototypeView';
 import { AppProvider, useAppContext } from './context/AppContext';
+import { Haptics, ImpactStyle } from '@capacitor/haptics';
 
 function ModeSwitcher() {
   const { resetData } = useAppContext();
   const [active, setActive] = useState<'demo'|'real'>('demo');
+  const [isOpen, setIsOpen] = useState(false);
+  const [clickCount, setClickCount] = useState(0);
 
   const handleSwitch = (mode: 'demo'|'real') => {
     setActive(mode);
     resetData(mode === 'demo');
+    setIsOpen(false);
+  };
+
+  const handleSecretClick = () => {
+    setClickCount(prev => {
+      const newCount = prev + 1;
+      if (newCount >= 5) {
+        setIsOpen(true);
+        return 0;
+      }
+      return newCount;
+    });
   };
 
   return (
-    <div className="flex items-center gap-2 bg-[#1A1A1A] p-2 rounded-full shadow-lg z-50">
-      <button 
-        onClick={() => handleSwitch('demo')}
-        className={`px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest transition-colors ${active === 'demo' ? 'bg-[#7B2CBF] text-white' : 'text-white/50 hover:text-white'}`}
-      >
-        Demo (Lleno)
-      </button>
-      <button 
-        onClick={() => handleSwitch('real')}
-        className={`px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest transition-colors ${active === 'real' ? 'bg-[#10B981] text-white' : 'text-white/50 hover:text-white'}`}
-      >
-        Real (Vacío)
-      </button>
-    </div>
+    <>
+      <div 
+        className="fixed top-0 right-0 w-16 h-16 z-[9999] opacity-0" 
+        onClick={handleSecretClick}
+        title="Área secreta"
+      />
+      {isOpen && (
+        <div className="fixed top-16 right-4 z-[10000] bg-white rounded-lg shadow-xl p-2 flex flex-col gap-2 border border-gray-200">
+          <div className="text-xs font-bold text-gray-400 mb-1 text-center">Menú de Pruebas</div>
+          <button 
+            onClick={() => handleSwitch('demo')}
+            className={`px-4 py-2 rounded text-sm font-bold transition-colors ${active === 'demo' ? 'bg-[#7B2CBF] text-white' : 'bg-gray-100 text-gray-800'}`}
+          >
+            Modo Lleno (Demo)
+          </button>
+          <button 
+            onClick={() => handleSwitch('real')}
+            className={`px-4 py-2 rounded text-sm font-bold transition-colors ${active === 'real' ? 'bg-[#10B981] text-white' : 'bg-gray-100 text-gray-800'}`}
+          >
+            Modo Vacío (Real)
+          </button>
+          <button 
+            onClick={() => setIsOpen(false)}
+            className="px-4 py-1 mt-2 text-xs text-gray-500 hover:text-gray-800 font-medium"
+          >
+            Cerrar
+          </button>
+        </div>
+      )}
+    </>
   );
 }
 
@@ -39,25 +70,25 @@ import { Lock } from 'lucide-react';
 function PinScreen({ onUnlock }: { onUnlock: () => void }) {
   const [pin, setPin] = useState('');
   
-  const handlePress = (num: string) => {
-    if (typeof navigator !== 'undefined' && navigator.vibrate) {
-      navigator.vibrate(50);
-    }
+  const handlePress = async (num: string) => {
+    try {
+      await Haptics.impact({ style: ImpactStyle.Light });
+    } catch (e) {}
     
     if (pin.length < 4) {
       const newPin = pin + num;
       setPin(newPin);
       if (newPin.length === 4) {
-        setTimeout(() => {
+        setTimeout(async () => {
           if (newPin === '1234') {
-            if (typeof navigator !== 'undefined' && navigator.vibrate) {
-              navigator.vibrate([100, 50, 100]); // Success vibration
-            }
+            try {
+              await Haptics.vibrate(); // Success vibration
+            } catch (e) {}
             onUnlock();
           } else {
-            if (typeof navigator !== 'undefined' && navigator.vibrate) {
-              navigator.vibrate([50, 50, 50, 50, 50]); // Error vibration
-            }
+            try {
+              await Haptics.impact({ style: ImpactStyle.Heavy }); // Error vibration
+            } catch (e) {}
             setPin('');
           }
         }, 300);
@@ -65,10 +96,10 @@ function PinScreen({ onUnlock }: { onUnlock: () => void }) {
     }
   };
 
-  const handleBackspace = () => {
-    if (typeof navigator !== 'undefined' && navigator.vibrate) {
-      navigator.vibrate(30);
-    }
+  const handleBackspace = async () => {
+    try {
+      await Haptics.impact({ style: ImpactStyle.Light });
+    } catch (e) {}
     setPin(pin.slice(0, -1));
   };
 
@@ -110,14 +141,7 @@ export default function App() {
   return (
     <AppProvider>
       <div className="min-h-screen bg-white md:bg-slate-100 flex flex-col items-center justify-center p-0 md:p-8 relative">
-        <div className="hidden md:block mb-4">
-          <ModeSwitcher />
-        </div>
-        
-        {/* Mobile switcher (absolute top left) */}
-        <div className="md:hidden absolute top-4 left-4 z-[9999]">
-          <ModeSwitcher />
-        </div>
+        <ModeSwitcher />
 
         <div className="w-full h-[100dvh] md:max-w-[420px] md:h-[850px] md:rounded-[3rem] overflow-hidden bg-white md:shadow-2xl relative md:border-[12px] md:border-[#1A1A1A] flex flex-col">
           {/* Simulated hardware elements */}

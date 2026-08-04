@@ -11,12 +11,19 @@
     0% {
       transform: translateY(0);
     }
+
     50% {
       transform: translateY(160px);
     }
-    100% {
-      transform: translateY(0);
-    }
+
   }
 }
 
+html,
+body {
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  overscroll-behavior-y: none;
+}
