@@ -87,11 +87,11 @@ export default function AIScreen() {
       <div className="px-6 py-4 border-b border-[#E5E5E5] flex items-center gap-4 bg-[#FCFAF7]/90 backdrop-blur-md sticky top-0 z-10 shrink-0">
         <div className="w-10 h-10 border border-[#1A1A1A] bg-white flex items-center justify-center relative">
           <Bot className="w-5 h-5 text-[#1A1A1A]" />
-          <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-[#7B2CBF] border-[1.5px] border-[#FCFAF7] rounded-full"></div>
+          <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-[#556B2F] border-[1.5px] border-[#FCFAF7] rounded-full"></div>
         </div>
         <div>
           <h2 className="text-xl font-serif italic text-[#1A1A1A] leading-tight">Asistente Chero</h2>
-          <span className="text-[9px] uppercase tracking-widest font-bold text-[#7B2CBF] flex items-center gap-1 mt-0.5">
+          <span className="text-[9px] uppercase tracking-widest font-bold text-[#556B2F] flex items-center gap-1 mt-0.5">
             <Sparkles className="w-3 h-3" /> IA Local (Low-Cost)
           </span>
         </div>
@@ -107,7 +107,7 @@ export default function AIScreen() {
               msg.sender === 'user' 
                 ? "bg-[#1A1A1A] text-white self-end border-[#1A1A1A] rounded-l-2xl rounded-tr-2xl" 
                 : "bg-white text-[#1A1A1A] self-start shadow-sm rounded-r-2xl rounded-tl-2xl border-[#E5E5E5]",
-              msg.isSuggestion && "border-[#7B2CBF] bg-[#F9F7F2]"
+              msg.isSuggestion && "border-[#556B2F] bg-[#F9F7F2]"
             )}
           >
             {msg.text}
@@ -138,9 +138,9 @@ export default function AIScreen() {
         ))}
         {isTyping && (
           <div className="bg-white text-[#1A1A1A] self-start shadow-sm border border-[#E5E5E5] rounded-r-2xl rounded-tl-2xl px-4 py-3 text-sm flex items-center gap-1.5 h-12">
-            <span className="w-1.5 h-1.5 bg-[#7B2CBF] rounded-full animate-bounce"></span>
-            <span className="w-1.5 h-1.5 bg-[#7B2CBF] rounded-full animate-bounce delay-75"></span>
-            <span className="w-1.5 h-1.5 bg-[#7B2CBF] rounded-full animate-bounce delay-150"></span>
+            <span className="w-1.5 h-1.5 bg-[#556B2F] rounded-full animate-bounce"></span>
+            <span className="w-1.5 h-1.5 bg-[#556B2F] rounded-full animate-bounce delay-75"></span>
+            <span className="w-1.5 h-1.5 bg-[#556B2F] rounded-full animate-bounce delay-150"></span>
           </div>
         )}
         <div ref={messagesEndRef} />
@@ -148,7 +148,7 @@ export default function AIScreen() {
 
       {/* Input Area */}
       <div className="p-4 bg-[#FCFAF7] border-t border-[#E5E5E5] shrink-0">
-        <div className="flex items-center gap-2 bg-white border border-[#1A1A1A] p-1.5 pr-2 focus-within:border-[#7B2CBF] transition-colors rounded-full">
+        <div className="flex items-center gap-2 bg-white border border-[#1A1A1A] p-1.5 pr-2 focus-within:border-[#556B2F] transition-colors rounded-full">
           <input 
             type="text" 
             value={input}

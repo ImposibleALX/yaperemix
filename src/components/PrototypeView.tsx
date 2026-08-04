@@ -59,7 +59,7 @@ export function PrototypeView() {
         <div className="relative -top-6">
           <button 
             onClick={() => setIsEntryModalOpen(true)}
-            className="w-14 h-14 rounded-full bg-[#1A1A1A] flex items-center justify-center text-white border-2 border-white shadow-xl hover:bg-[#7B2CBF] transition-colors active:scale-95 touch-manipulation"
+            className="w-14 h-14 rounded-full bg-[#1A1A1A] flex items-center justify-center text-white border-2 border-white shadow-xl hover:bg-[#556B2F] transition-colors active:scale-95 touch-manipulation"
           >
             <Plus className="w-7 h-7" />
           </button>
@@ -91,7 +91,7 @@ function NavItem({ icon, label, isActive, onClick }: { icon: React.ReactNode, la
       onClick={onClick}
       className={cn(
         "flex flex-col items-center gap-1 min-w-[50px] transition-colors active:scale-95 touch-manipulation",
-        isActive ? "text-[#7B2CBF]" : "text-[#1A1A1A]/40 hover:text-[#1A1A1A]"
+        isActive ? "text-[#556B2F]" : "text-[#1A1A1A]/40 hover:text-[#1A1A1A]"
       )}
     >
       <div className={cn("[&>svg]:w-[22px] [&>svg]:h-[22px]")}>

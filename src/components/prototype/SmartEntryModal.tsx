@@ -302,14 +302,14 @@ export default function SmartEntryModal({ isOpen, onClose }: { isOpen: boolean, 
                 value={voiceInput}
                 onChange={(e) => setVoiceInput(e.target.value)}
                 placeholder="Ej: Caserito, 20 soles de pollo y 5 de papa"
-                className="w-full h-24 p-4 border border-[#1A1A1A] bg-white rounded-none text-sm font-serif italic resize-none focus:outline-none focus:border-[#7B2CBF]"
+                className="w-full h-24 p-4 border border-[#1A1A1A] bg-white rounded-none text-sm font-serif italic resize-none focus:outline-none focus:border-[#556B2F]"
               />
             </div>
 
             <button 
               onClick={() => processVoiceCommand(voiceInput)}
               disabled={!voiceInput.trim() || isProcessing}
-              className="w-full py-4 bg-[#1A1A1A] text-white border border-[#1A1A1A] rounded-none flex items-center justify-center gap-2 text-[10px] uppercase tracking-widest font-bold hover:bg-[#7B2CBF] active:scale-95 touch-manipulation transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full py-4 bg-[#1A1A1A] text-white border border-[#1A1A1A] rounded-none flex items-center justify-center gap-2 text-[10px] uppercase tracking-widest font-bold hover:bg-[#556B2F] active:scale-95 touch-manipulation transition-all disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isProcessing ? 'Procesando Inteligencia...' : 'Procesar Texto/Voz'}
             </button>
@@ -348,7 +348,7 @@ export default function SmartEntryModal({ isOpen, onClose }: { isOpen: boolean, 
                   required
                   value={amount || ''}
                   onChange={(e) => setAmount(parseFloat(e.target.value))}
-                  className="w-full p-3 border border-[#1A1A1A] bg-white rounded-none text-xl font-serif italic focus:outline-none focus:border-[#7B2CBF]"
+                  className="w-full p-3 border border-[#1A1A1A] bg-white rounded-none text-xl font-serif italic focus:outline-none focus:border-[#556B2F]"
                   placeholder="0.00"
                 />
               </div>
@@ -360,7 +360,7 @@ export default function SmartEntryModal({ isOpen, onClose }: { isOpen: boolean, 
                   required
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
-                  className="w-full p-3 border border-[#1A1A1A] bg-white rounded-none text-sm font-serif focus:outline-none focus:border-[#7B2CBF]"
+                  className="w-full p-3 border border-[#1A1A1A] bg-white rounded-none text-sm font-serif focus:outline-none focus:border-[#556B2F]"
                   placeholder={transactionType === 'expense' ? "Ej: Menú del día" : "Ej: Sueldo, Venta"}
                 />
               </div>
@@ -372,7 +372,7 @@ export default function SmartEntryModal({ isOpen, onClose }: { isOpen: boolean, 
                   required
                   value={dateStr}
                   onChange={e => setDateStr(e.target.value)}
-                  className="w-full p-3 border border-[#1A1A1A] bg-white rounded-none text-sm font-serif focus:outline-none focus:border-[#7B2CBF]"
+                  className="w-full p-3 border border-[#1A1A1A] bg-white rounded-none text-sm font-serif focus:outline-none focus:border-[#556B2F]"
                 />
               </div>
 
@@ -382,7 +382,7 @@ export default function SmartEntryModal({ isOpen, onClose }: { isOpen: boolean, 
                   <select 
                     value={category}
                     onChange={(e) => setCategory(e.target.value)}
-                    className="w-full p-3 border border-[#1A1A1A] bg-white rounded-none text-sm font-serif focus:outline-none focus:border-[#7B2CBF]"
+                    className="w-full p-3 border border-[#1A1A1A] bg-white rounded-none text-sm font-serif focus:outline-none focus:border-[#556B2F]"
                   >
                     {pockets.map(p => (
                       <option key={p.id} value={p.id}>{p.name}</option>
@@ -394,7 +394,7 @@ export default function SmartEntryModal({ isOpen, onClose }: { isOpen: boolean, 
 
             <button 
               type="submit"
-              className="w-full py-4 mt-4 bg-[#1A1A1A] text-white border border-[#1A1A1A] rounded-none flex items-center justify-center gap-2 text-[10px] uppercase tracking-widest font-bold hover:bg-[#7B2CBF] active:scale-95 touch-manipulation transition-all"
+              className="w-full py-4 mt-4 bg-[#1A1A1A] text-white border border-[#1A1A1A] rounded-none flex items-center justify-center gap-2 text-[10px] uppercase tracking-widest font-bold hover:bg-[#556B2F] active:scale-95 touch-manipulation transition-all"
             >
               Guardar {transactionType === 'expense' ? 'Gasto' : 'Ingreso'}
             </button>
@@ -409,7 +409,7 @@ export default function SmartEntryModal({ isOpen, onClose }: { isOpen: boolean, 
             <div className="w-full relative aspect-[3/4] bg-black rounded-none border border-[#1A1A1A] flex flex-col items-center justify-center overflow-hidden">
                {isProcessing && (
                  <div className="absolute inset-0 bg-black/60 flex flex-col items-center justify-center z-30">
-                   <div className="absolute top-0 left-0 w-full h-[3px] bg-[#7B2CBF] animate-[scan_2s_ease-in-out_infinite]" />
+                   <div className="absolute top-0 left-0 w-full h-[3px] bg-[#556B2F] animate-[scan_2s_ease-in-out_infinite]" />
                    <div className="w-8 h-8 border-2 border-white/20 border-t-white rounded-full animate-spin mb-4" />
                    <span className="text-[10px] uppercase tracking-widest font-bold text-white">Extrayendo texto...</span>
                  </div>
@@ -433,7 +433,7 @@ export default function SmartEntryModal({ isOpen, onClose }: { isOpen: boolean, 
               <button 
                 onClick={captureAndProcessImage}
                 disabled={!stream || isProcessing}
-                className="flex-1 py-4 bg-[#1A1A1A] text-white border border-[#1A1A1A] rounded-none flex items-center justify-center gap-2 text-[10px] uppercase tracking-widest font-bold hover:bg-[#7B2CBF] active:scale-95 touch-manipulation transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                className="flex-1 py-4 bg-[#1A1A1A] text-white border border-[#1A1A1A] rounded-none flex items-center justify-center gap-2 text-[10px] uppercase tracking-widest font-bold hover:bg-[#556B2F] active:scale-95 touch-manipulation transition-all disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isProcessing ? 'Procesando...' : 'Capturar'}
               </button>
@@ -448,7 +448,7 @@ export default function SmartEntryModal({ isOpen, onClose }: { isOpen: boolean, 
             </div>
             <div className="space-y-2">
               <h3 className="text-4xl font-serif italic text-[#1A1A1A] font-bold">S/ {amount.toFixed(2)}</h3>
-              <p className={`text-[10px] uppercase tracking-widest font-bold ${transactionType === 'income' ? 'text-[#10B981]' : 'text-[#7B2CBF]'}`}>
+              <p className={`text-[10px] uppercase tracking-widest font-bold ${transactionType === 'income' ? 'text-[#10B981]' : 'text-[#556B2F]'}`}>
                 {transactionType === 'income' 
                   ? 'Ingreso Registrado' 
                   : `Registrado en '${pockets.find(p => p.id === category)?.name || 'Bolsillo'}'`}

@@ -63,10 +63,10 @@ export default function PaymentsScreen() {
 
       {/* Auto-pay Banner */}
       {urgentPayment && (
-        <div className="bg-[#1A1A1A] p-5 text-white border-l-4 border-[#7B2CBF] flex items-center justify-between">
+        <div className="bg-[#1A1A1A] p-5 text-white border-l-4 border-[#556B2F] flex items-center justify-between">
           <div className="space-y-2">
             <div className="flex items-center gap-2">
-              <ShieldAlert className="w-4 h-4 text-[#7B2CBF]" />
+              <ShieldAlert className="w-4 h-4 text-[#556B2F]" />
               <span className="text-[10px] uppercase tracking-widest font-bold text-[#FCFAF7]">Aviso Preventivo</span>
             </div>
             <p className="text-xs font-serif italic opacity-70">"Caser@, vence {urgentPayment.title} {urgentPayment.dueDate.toLowerCase()}. ¿Lo pagamos ahora para evitar el corte?"</p>
@@ -76,7 +76,7 @@ export default function PaymentsScreen() {
               if (typeof navigator !== 'undefined' && navigator.vibrate) navigator.vibrate([100, 50, 100]);
               payService(urgentPayment.id);
             }}
-            className="bg-[#7B2CBF] text-white text-[10px] uppercase tracking-widest font-bold px-3 py-2 border border-[#7B2CBF] hover:bg-transparent active:scale-95 touch-manipulation transition-all">
+            className="bg-[#556B2F] text-white text-[10px] uppercase tracking-widest font-bold px-3 py-2 border border-[#556B2F] hover:bg-transparent active:scale-95 touch-manipulation transition-all">
             PAGAR
           </button>
         </div>
@@ -85,7 +85,7 @@ export default function PaymentsScreen() {
       <div className="space-y-4">
         <div className="flex justify-between items-center">
           <h3 className="text-[10px] uppercase tracking-[0.2em] font-bold opacity-50">Cronograma de Deudas</h3>
-          <button onClick={() => setShowAddForm(true)} className="text-[9px] uppercase tracking-widest font-bold text-[#7B2CBF] hover:underline flex items-center gap-1">
+          <button onClick={() => setShowAddForm(true)} className="text-[9px] uppercase tracking-widest font-bold text-[#556B2F] hover:underline flex items-center gap-1">
             <Plus className="w-3 h-3" /> Agregar
           </button>
         </div>
@@ -97,12 +97,12 @@ export default function PaymentsScreen() {
             </button>
             <h4 className="text-xs font-bold uppercase tracking-widest">Nueva Deuda</h4>
             <div className="grid grid-cols-2 gap-3">
-              <input type="text" placeholder="Proveedor (ej. Luz del Sur)" value={newTitle} onChange={e => setNewTitle(e.target.value)} className="p-2 border border-[#E5E5E5] text-sm focus:border-[#7B2CBF] outline-none" required />
-              <input type="number" placeholder="Monto" step="0.1" value={newAmount} onChange={e => setNewAmount(e.target.value)} className="p-2 border border-[#E5E5E5] text-sm focus:border-[#7B2CBF] outline-none" required />
+              <input type="text" placeholder="Proveedor (ej. Luz del Sur)" value={newTitle} onChange={e => setNewTitle(e.target.value)} className="p-2 border border-[#E5E5E5] text-sm focus:border-[#556B2F] outline-none" required />
+              <input type="number" placeholder="Monto" step="0.1" value={newAmount} onChange={e => setNewAmount(e.target.value)} className="p-2 border border-[#E5E5E5] text-sm focus:border-[#556B2F] outline-none" required />
             </div>
             <div className="grid grid-cols-2 gap-3">
-              <input type="date" title="Fecha de vencimiento" value={newDueDate} onChange={e => setNewDueDate(e.target.value)} className="p-2 border border-[#E5E5E5] text-sm focus:border-[#7B2CBF] outline-none" required />
-              <select value={newIcon} onChange={e => setNewIcon(e.target.value as any)} className="p-2 border border-[#E5E5E5] text-sm focus:border-[#7B2CBF] outline-none">
+              <input type="date" title="Fecha de vencimiento" value={newDueDate} onChange={e => setNewDueDate(e.target.value)} className="p-2 border border-[#E5E5E5] text-sm focus:border-[#556B2F] outline-none" required />
+              <select value={newIcon} onChange={e => setNewIcon(e.target.value as any)} className="p-2 border border-[#E5E5E5] text-sm focus:border-[#556B2F] outline-none">
                 <option value="zap">Luz</option>
                 <option value="droplet">Agua</option>
                 <option value="wifi">Internet</option>
@@ -110,10 +110,10 @@ export default function PaymentsScreen() {
               </select>
             </div>
             <label className="flex items-center gap-2 cursor-pointer">
-              <input type="checkbox" checked={isRecurring} onChange={e => setIsRecurring(e.target.checked)} className="accent-[#7B2CBF]" />
+              <input type="checkbox" checked={isRecurring} onChange={e => setIsRecurring(e.target.checked)} className="accent-[#556B2F]" />
               <span className="text-[10px] uppercase font-bold opacity-70">Es pago recurrente mensual</span>
             </label>
-            <button type="submit" className="w-full bg-[#1A1A1A] text-white py-2 text-[10px] uppercase font-bold tracking-widest hover:bg-[#7B2CBF]">
+            <button type="submit" className="w-full bg-[#1A1A1A] text-white py-2 text-[10px] uppercase font-bold tracking-widest hover:bg-[#556B2F]">
               Guardar Deuda
             </button>
           </form>
@@ -148,7 +148,7 @@ export default function PaymentsScreen() {
                       if (typeof navigator !== 'undefined' && navigator.vibrate) navigator.vibrate([100, 50, 100]);
                       payService(payment.id);
                     }}
-                    className="flex-1 bg-[#1A1A1A] text-white text-[10px] uppercase tracking-widest font-bold py-3 hover:bg-[#7B2CBF] active:scale-95 touch-manipulation transition-all border border-[#1A1A1A] hover:border-[#7B2CBF]">
+                    className="flex-1 bg-[#1A1A1A] text-white text-[10px] uppercase tracking-widest font-bold py-3 hover:bg-[#556B2F] active:scale-95 touch-manipulation transition-all border border-[#1A1A1A] hover:border-[#556B2F]">
                     Pagar Ahora
                   </button>
                 </div>

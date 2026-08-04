@@ -43,7 +43,7 @@ function ModeSwitcher() {
           <div className="text-xs font-bold text-gray-400 mb-1 text-center">Menú de Pruebas</div>
           <button 
             onClick={() => handleSwitch('demo')}
-            className={`px-4 py-2 rounded text-sm font-bold transition-colors ${active === 'demo' ? 'bg-[#7B2CBF] text-white' : 'bg-gray-100 text-gray-800'}`}
+            className={`px-4 py-2 rounded text-sm font-bold transition-colors ${active === 'demo' ? 'bg-[#556B2F] text-white' : 'bg-gray-100 text-gray-800'}`}
           >
             Modo Lleno (Demo)
           </button>
@@ -104,7 +104,7 @@ function PinScreen({ onUnlock }: { onUnlock: () => void }) {
   };
 
   return (
-    <div className="absolute inset-0 bg-[#7B2CBF] z-[100] flex flex-col items-center justify-center p-6 text-white animate-in fade-in zoom-in-95 duration-500">
+    <div className="absolute inset-0 bg-[#556B2F] z-[100] flex flex-col items-center justify-center p-6 text-white animate-in fade-in zoom-in-95 duration-500">
       <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mb-8">
         <Lock className="w-8 h-8" />
       </div>

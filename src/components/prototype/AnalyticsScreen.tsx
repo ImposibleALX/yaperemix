@@ -100,7 +100,7 @@ export default function AnalyticsScreen() {
       <div className="space-y-4">
         <div className="flex justify-between items-center mb-4">
           <h3 className="text-[10px] uppercase tracking-[0.2em] font-bold opacity-50">Semáforo Financiero y Presupuestos</h3>
-          <button onClick={() => setShowAddForm(true)} className="text-[9px] uppercase tracking-widest font-bold text-[#7B2CBF] hover:underline flex items-center gap-1">
+          <button onClick={() => setShowAddForm(true)} className="text-[9px] uppercase tracking-widest font-bold text-[#556B2F] hover:underline flex items-center gap-1">
             <Plus className="w-3 h-3" /> Nuevo Bolsillo
           </button>
         </div>
@@ -112,14 +112,14 @@ export default function AnalyticsScreen() {
             </button>
             <h4 className="text-xs font-bold uppercase tracking-widest">Nuevo Bolsillo</h4>
             <div className="grid grid-cols-2 gap-3">
-              <input type="text" placeholder="Nombre (ej. Viajes)" value={newName} onChange={e => setNewName(e.target.value)} className="p-2 border border-[#E5E5E5] text-sm focus:border-[#7B2CBF] outline-none" required />
-              <input type="number" placeholder="Presupuesto" step="0.1" value={newBudget} onChange={e => setNewBudget(e.target.value)} className="p-2 border border-[#E5E5E5] text-sm focus:border-[#7B2CBF] outline-none" required />
+              <input type="text" placeholder="Nombre (ej. Viajes)" value={newName} onChange={e => setNewName(e.target.value)} className="p-2 border border-[#E5E5E5] text-sm focus:border-[#556B2F] outline-none" required />
+              <input type="number" placeholder="Presupuesto" step="0.1" value={newBudget} onChange={e => setNewBudget(e.target.value)} className="p-2 border border-[#E5E5E5] text-sm focus:border-[#556B2F] outline-none" required />
             </div>
             <div className="flex items-center gap-3">
               <span className="text-[10px] uppercase font-bold opacity-70">Color:</span>
               <input type="color" value={newColor} onChange={e => setNewColor(e.target.value)} className="w-8 h-8 border-none cursor-pointer" />
             </div>
-            <button type="submit" className="w-full bg-[#1A1A1A] text-white py-2 text-[10px] uppercase font-bold tracking-widest hover:bg-[#7B2CBF]">
+            <button type="submit" className="w-full bg-[#1A1A1A] text-white py-2 text-[10px] uppercase font-bold tracking-widest hover:bg-[#556B2F]">
               Crear Bolsillo
             </button>
           </form>
@@ -174,7 +174,7 @@ export default function AnalyticsScreen() {
 
       {/* Insight Card */}
       <div className="bg-[#FCFAF7] border border-[#1A1A1A] p-4 flex gap-4 mt-6 items-start">
-        <div className="w-8 h-8 flex items-center justify-center border border-[#7B2CBF] rounded-none bg-white text-[#7B2CBF] shrink-0">
+        <div className="w-8 h-8 flex items-center justify-center border border-[#556B2F] rounded-none bg-white text-[#556B2F] shrink-0">
           <Bot className="w-4 h-4" />
         </div>
         <div>

@@ -80,13 +80,13 @@ export default function DashboardScreen() {
       <div className="bg-[#F9F7F2] p-5 border border-[#E5E5E5] space-y-4">
         <div className="flex justify-between items-center text-xs">
           <div className="flex items-center gap-2">
-            <Target className="w-4 h-4 text-[#7B2CBF]" />
+            <Target className="w-4 h-4 text-[#556B2F]" />
             <span className="font-serif italic font-bold">Bolsillo Compartido: Viaje</span>
           </div>
           <span className="font-bold text-[#1A1A1A]">65%</span>
         </div>
         <div className="w-full bg-[#E5E5E5] h-1 rounded-none overflow-hidden">
-          <div className="bg-[#7B2CBF] h-full" style={{ width: '65%' }}></div>
+          <div className="bg-[#556B2F] h-full" style={{ width: '65%' }}></div>
         </div>
         <p className="text-[10px] opacity-60">S/ 1,300 de S/ 2,000 ahorrados por la familia</p>
       </div>
@@ -102,7 +102,7 @@ export default function DashboardScreen() {
               <option>Mayo 2026</option>
             </select>
           </div>
-          <button className="text-[9px] uppercase tracking-widest font-bold text-[#7B2CBF] hover:underline pb-1">Ver todo</button>
+          <button className="text-[9px] uppercase tracking-widest font-bold text-[#556B2F] hover:underline pb-1">Ver todo</button>
         </div>
         
         <div className="space-y-4">
@@ -110,7 +110,7 @@ export default function DashboardScreen() {
             <div key={tx.id} className="flex items-center justify-between border-b border-[#E5E5E5] pb-3">
               <div className="flex items-center gap-3">
                 <div className={`w-8 h-8 flex items-center justify-center border ${
-                  tx.type === 'expense' ? 'border-[#E5E5E5] text-[#1A1A1A] opacity-50' : 'border-[#7B2CBF] text-[#7B2CBF]'
+                  tx.type === 'expense' ? 'border-[#E5E5E5] text-[#1A1A1A] opacity-50' : 'border-[#556B2F] text-[#556B2F]'
                 }`}>
                   {tx.type === 'expense' ? <ArrowUpRight className="w-4 h-4" /> : <ArrowDownRight className="w-4 h-4" />}
                 </div>
@@ -119,7 +119,7 @@ export default function DashboardScreen() {
                   <p className="text-[10px] opacity-50">{tx.date}</p>
                 </div>
               </div>
-              <p className={`text-sm font-serif italic font-bold ${tx.type === 'expense' ? 'text-[#1A1A1A]' : 'text-[#7B2CBF]'}`}>
+              <p className={`text-sm font-serif italic font-bold ${tx.type === 'expense' ? 'text-[#1A1A1A]' : 'text-[#556B2F]'}`}>
                 {tx.type === 'expense' ? '-' : '+'}S/ {tx.amount.toFixed(2)}
               </p>
             </div>

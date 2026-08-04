@@ -57,7 +57,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
       { id: '1', name: 'Comida', budget: 1200, spent: 350, color: '#10B981' },
       { id: '2', name: 'Servicios', budget: 300, spent: 85, color: '#F59E0B' },
       { id: '3', name: 'Gustitos', budget: 200, spent: 150, color: '#F43F5E' },
-      { id: '4', name: 'Emergencias', budget: 500, spent: 100, color: '#7B2CBF' },
+      { id: '4', name: 'Emergencias', budget: 500, spent: 100, color: '#556B2F' },
     ];
   });
 
@@ -90,7 +90,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
         { id: '1', name: 'Comida', budget: 1200, spent: 350, color: '#10B981' },
         { id: '2', name: 'Servicios', budget: 300, spent: 85, color: '#F59E0B' },
         { id: '3', name: 'Gustitos', budget: 200, spent: 150, color: '#F43F5E' },
-        { id: '4', name: 'Emergencias', budget: 500, spent: 100, color: '#7B2CBF' },
+        { id: '4', name: 'Emergencias', budget: 500, spent: 100, color: '#556B2F' },
       ]);
       setPayments([
         { id: '1', title: 'Luz del Sur', amount: 120.50, dueDate: 'Vence en 2 días', iconType: 'zap', urgent: true, isRecurring: true },
@@ -105,7 +105,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
         { id: '1', name: 'Comida', budget: 1500, spent: 0, color: '#10B981' },
         { id: '2', name: 'Servicios', budget: 500, spent: 0, color: '#F59E0B' },
         { id: '3', name: 'Gustitos', budget: 300, spent: 0, color: '#F43F5E' },
-        { id: '4', name: 'Emergencias', budget: 500, spent: 0, color: '#7B2CBF' },
+        { id: '4', name: 'Emergencias', budget: 500, spent: 0, color: '#556B2F' },
       ]);
       setPayments([]);
     }
